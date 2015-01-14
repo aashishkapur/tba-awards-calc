@@ -1,0 +1,22 @@
+how to do this
+
+make ajax calls to get all events in year
+format: www.thebluealliance.com/api/v2/events/<year>
+	import into 1-d array
+
+then, get all awards from event
+ www.thebluealliance.com/api/v2/event/<event key>/awards
+ import into 2d of original array
+
+ then, when looking for ranking of specific awards: chairmans, EI, etc.
+ go through all awards, and get the team number that is stored in the array
+ 	one pass, store team number in temp var
+
+ api call:  www.thebluealliance.com/api/v2/event/<event key>/rankings
+ to get ranking of team numbers stored in temp vars
+
+ add to 2 vars: sum variable(holds total sum), num variable(holds number of events added
+ 						(necessary?, can just use earlier array size))
+
+
+then divide, get mean 
