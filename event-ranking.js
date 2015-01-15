@@ -1,7 +1,12 @@
+// 
+// 
+// 
+// 
 
-	var tbaID = "awards:awards-data:01";
+var tbaID = "awards:awards-data:01";
 
-	var year = "2014";
+var year = "2014";
+	// year of events that is wanted
 
 
 function getEvents()
@@ -30,8 +35,6 @@ function getEvents()
 				events.push(data[i]['key']);
 			}
 
-			console.log("1");
-
 		}
 	});
 
@@ -48,8 +51,22 @@ $(document).ready(function() {
 		console.log(events[i]);
 	}
 
-	console.log("2");
+	/*
+		should make an object to store all the event data, and store objects in array
 
+		object should have
+			-event key
+			-team numbers of teams that won awards(and what awards they won)
+			-QA(qual average) of the teams winning awards
+			-??
+
+		then, go through array, get average, etc.
+
+		need to adapt for different awards in different years?
+
+
+
+	*/
 
 
 });
