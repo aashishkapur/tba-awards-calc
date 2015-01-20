@@ -71,10 +71,23 @@ $(document).ready(function() {
 		award types: https://github.com/the-blue-alliance/the-blue-alliance/blob/master/consts/award_type.py#L15
 
 		need to(for api call of 1 event, in the 'success' function):
-			-???
+			-can have object hold array(which has award type and team number and team's ranking)
+			-then, get ranking data through ajax call, and get each team's rank in the above array
+			-after that's done, make 2-d array(1-60ish) which holds data for all awards
+			-iterate through all objects in the RDO array, putting the ranking data into the array
+				-also put data such as # of teams, to calc average
 
-		have to find a way for the array of awards (for a particular event) to get put in the RDO
 
+
+		----------------------ignore below--------------
+		have to find a way for the array of awards (for a particular event) to get put in the RDO, given
+			that I do not want to enumerate every event in the RDO declaration, and that different events 
+			give out different awards
+		------
+		
+		messy way:
+		only ranking matters
+		so, given object key, could get awards data, and from the json recieved, get team's ranking 
 
 	*/
 
