@@ -13,7 +13,6 @@ var rankingData = []
 
 function getEvents()
 {
-	// var events = [];
 	$.ajax({
 		type:"GET",
 		url: "http://www.thebluealliance.com/api/v2/events/" + year,
@@ -22,33 +21,14 @@ function getEvents()
 		async: false,
 		success: function(data) {
 
-			// console.log(data);
-			// return (data);
-			// var jsonParsed = JSON.parse(data);
-				// dont need to parse json, jquery does it automatically
-
-			// for(var i = 0; i < jsonParsed.length; i++)
-			// {
-			// 	events.push(jsonParsed[i]['key']);
-			// }
-
-			// for(var i = 0; i < data.length; i++)
-			// {
-			// 	events.push(data[i]['key']);
-			// }
-
 			for(var i = 0; i < data.length; i++)
 			{
 				var tempRDO = Object.create(rankingDataObject);
 				tempRDO.addEventKey(data[i]['key']);
 				rankingData.push(tempRDO);
 			}
-
-
 		}
 	});
-
-	// return events;
 }
 
 var rankingDataObject = {
@@ -64,11 +44,9 @@ rankingDataObject.printKey = function(){
 	return this.eventKey;
 };
 
-// object.create(object) 
 
 
 $(document).ready(function() {
-	// alert("a");
 
 	getEvents();
 
@@ -90,6 +68,12 @@ $(document).ready(function() {
 
 		need to adapt for different awards in different years?
 
+		award types: https://github.com/the-blue-alliance/the-blue-alliance/blob/master/consts/award_type.py#L15
+
+		need to(for api call of 1 event, in the 'success' function):
+			-???
+
+		have to find a way for the array of awards (for a particular event) to get put in the RDO
 
 
 	*/
