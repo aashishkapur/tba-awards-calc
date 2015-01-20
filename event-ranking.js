@@ -8,10 +8,12 @@ var tbaID = "awards:awards-data:01";
 var year = "2014";
 	// year of events that is wanted
 
+var rankingData = []
+
 
 function getEvents()
 {
-	var events = [];
+	// var events = [];
 	$.ajax({
 		type:"GET",
 		url: "http://www.thebluealliance.com/api/v2/events/" + year,
@@ -30,25 +32,49 @@ function getEvents()
 			// 	events.push(jsonParsed[i]['key']);
 			// }
 
+			// for(var i = 0; i < data.length; i++)
+			// {
+			// 	events.push(data[i]['key']);
+			// }
+
 			for(var i = 0; i < data.length; i++)
 			{
-				events.push(data[i]['key']);
+				var tempRDO = Object.create(rankingDataObject);
+				tempRDO.addEventKey(data[i]['key']);
+				rankingData.push(tempRDO);
 			}
+
 
 		}
 	});
 
-	return events;
+	// return events;
 }
+
+var rankingDataObject = {
+	eventKey: null
+};
+
+rankingDataObject.addEventKey = function(eventKey){
+	this.eventKey = eventKey;
+
+};
+
+rankingDataObject.printKey = function(){
+	return this.eventKey;
+};
+
+// object.create(object) 
 
 
 $(document).ready(function() {
+	// alert("a");
 
-	var events = getEvents();
+	getEvents();
 
-	for(var i = 0; i < events.length; i++)
+	for(var i = 0; i < rankingData.length; i++)
 	{
-		console.log(events[i]);
+		console.log(rankingData[i].printKey());
 	}
 
 	/*
